@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {HashRouter as Router, Route, Link} from 'react-router-dom'
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Accounts</h2>
+      <ul>
+        <li>
+          <Link to='/aliens' >Aliens</Link>
+        </li>
+        <li>
+          <Link to='/predetor' >Predetor</Link>
+        </li>
+        <li>
+          <Link to="/terminator" >Terminator</Link>
+        </li>
+        <li>
+          <Link to='/robocop' >RoboCop</Link>
+        </li>
+      </ul>
+      {/* Route is a selfclosing tag, we are setting params on the root. */}
+      <Route path="/:id" component={Child}  />
     </div>
+    </Router>
   );
+}
+
+const Child = ({ match }) => {
+  return(
+    <div>
+      <h3>ID: {match.params.id}</h3>
+    </div>
+  )
 }
 
 export default App;

@@ -1,0 +1,3 @@
+DELETE FROM wlh8
+WHERE id = 5
+RETURNING *;

@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import {HashRouter as Router, Route, Link} from 'react-router-dom'
+import {HashRouter as Router, Link} from 'react-router-dom'
+import routes from './components/routes'
 
 function App() {
   return (
     <Router>
-    <div className="App">
+    <div>
       <h2>Accounts</h2>
       <ul>
         <li>
@@ -21,19 +22,10 @@ function App() {
           <Link to='/robocop' >RoboCop</Link>
         </li>
       </ul>
-      {/* Route is a selfclosing tag, we are setting params on the root. */}
-      <Route path="/:id" component={Child}  />
+      {routes}
     </div>
     </Router>
   );
-}
-
-const Child = ({ match }) => {
-  return(
-    <div>
-      <h3>ID: {match.params.id}</h3>
-    </div>
-  )
 }
 
 export default App;
